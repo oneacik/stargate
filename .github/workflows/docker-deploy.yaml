@@ -15,11 +15,10 @@ jobs:
       matrix:
         app_name:
           - libruch
-          - ledger
     name: "${{matrix.app_name}}: Docker Build & Push"
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: oneacik/${{matrix.app_name}}
+      IMAGE_NAME: ${{github.repository}}-${{ env.IMAGE_NAME }}
     permissions:
       contents: read
       packages: write
