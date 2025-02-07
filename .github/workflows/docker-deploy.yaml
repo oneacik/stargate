@@ -18,7 +18,7 @@ jobs:
     name: "${{matrix.app_name}}: Docker Build & Push"
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: ${{github.repository}}-${{ env.IMAGE_NAME }}
+      IMAGE_NAME: ${{github.repository}}-${{ matrix.app_name }}
     permissions:
       contents: read
       packages: write
