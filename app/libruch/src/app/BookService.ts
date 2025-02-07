@@ -18,14 +18,15 @@
 //     })
 // }
 
+let baseUrl = process.env.BASE_URL ?? "http://localhost"
 
 export async function queryBook(isbn: string): Promise<Book> {
-  return fetch(`/api/books/${parseInt(isbn)}`)
+  return fetch(`${baseUrl}/api/books/${parseInt(isbn)}`)
     .then(x => x.json())
 }
 
 export async function saveBook(email: string, isbn: string) {
-  return fetch(`/api/library/${email}/${isbn}`, {method: "PUT"}).then(x => x.statusText)
+  return fetch(`${baseUrl}/api/library/${email}/${isbn}`, {method: "PUT"}).then(x => x.statusText)
 }
 
 export type Book = {
