@@ -18,7 +18,7 @@ jobs:
     name: "${{matrix.app_name}}: Docker Build & Push"
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: ${{github.repository}}-${{ matrix.app_name }}
+      IMAGE_NAME: ${{github.repository}}-${{matrix.app_name}}
     permissions:
       contents: read
       packages: write
@@ -53,7 +53,7 @@ jobs:
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
         with:
-          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
       
