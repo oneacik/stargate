@@ -1,6 +1,6 @@
 "use client"
 import React, {useState} from "react";
-import {Book, queryBook} from "./BookService"
+import {Book, queryBook} from "./BookClient"
 
 export const ScanBookController = (props: {
   also?: (book: Book) => Promise<void>,

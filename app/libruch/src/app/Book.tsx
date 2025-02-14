@@ -1,4 +1,4 @@
-import {Book as BookType} from "@/app/BookService";
+import {Book as BookType} from "@/app/BookClient";
 
 export const Book = (props: { book: BookType }) => {
   return <div>

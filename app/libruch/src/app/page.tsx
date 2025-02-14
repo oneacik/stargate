@@ -9,8 +9,9 @@ import {ReactCamera} from "@/app/ReactCamera";
 import {ScanBookController} from "@/app/ScanBookController";
 import {AuthenticationController} from "@/app/AuthenticationController";
 import {LoginForm} from "@/app/LoginForm";
-import {saveBook} from "@/app/BookService";
+import {saveBook} from "@/app/BookClient";
 import {SpreadSheet} from "@/app/SpreadSheet";
+import {authenticate, register} from "@/app/AuthenticationClient";
 
 
 export default function Home() {
@@ -19,10 +20,10 @@ export default function Home() {
       <FullScreen className={"fullscreen"}>
         <SpreadSheet></SpreadSheet>
         <VerticalCentered>
-          <AuthenticationController>
-            {(token, authenticate) => [
-              <LoginForm callback={authenticate}></LoginForm>,
-              <ScanBookController also={(book) => (saveBook(token, book.isbn), null)}>
+          <AuthenticationController fetchAuthentication={authenticate}>
+            {(token) => [
+              <LoginForm callback={register}></LoginForm>,
+              <ScanBookController also={(book) => (saveBook(book.isbn), null)}>
                 {(book, updateBook) =>
                   <>
                     <Tile>

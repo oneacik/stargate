@@ -1,4 +1,4 @@
-import {Book as BookType} from "@/app/BookService";
+import {Book as BookType} from "@/app/BookClient";
 import styled from "styled-components";
 
 export const SpreadSheet = () => {

@@ -1,4 +1,4 @@
-"use server"
+"use client"
 
 // export async function queryBook(isbn: string): Promise<Book> {
 //   return fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${parseInt(isbn)}`)
@@ -21,12 +21,12 @@
 let baseUrl = process.env.BASE_URL ?? "http://localhost"
 
 export async function queryBook(isbn: string): Promise<Book> {
-  return fetch(`${baseUrl}/api/books/${parseInt(isbn)}`)
+  return fetch(`/api/books/${parseInt(isbn)}`)
     .then(x => x.json())
 }
 
-export async function saveBook(email: string, isbn: string) {
-  return fetch(`${baseUrl}/api/library/${email}/${isbn}`, {method: "PUT"}).then(x => x.statusText)
+export async function saveBook(isbn: string) {
+  return fetch(`/api/library/${isbn}`, {method: "PUT", credentials: "include"}).then(x => x.statusText)
 }
 
 export type Book = {
