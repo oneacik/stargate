@@ -12,7 +12,7 @@ export const LoginForm = ({callback} : {callback: (text: string) => void}) => {
     }}>
       <Tile><input ref={ref} style={{width: "100%", height: "2rem", padding: "1rem"}} placeholder={"email@email.com"} type={"text"}></input></Tile>
       <Tile>
-        <button style={{width: "100%", height: "2rem"}} type={"submit"}>ZALOGUJ</button>
+        <button style={{width: "100%", height: "2rem"}} type={"submit"}>SEND LOGIN LINK</button>
       </Tile>
     </form>
   </Tile>

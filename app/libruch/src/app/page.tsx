@@ -22,7 +22,18 @@ export default function Home() {
         <VerticalCentered>
           <AuthenticationController fetchAuthentication={authenticate}>
             {(token) => [
-              <LoginForm callback={register}></LoginForm>,
+              <>
+                <LoginForm callback={register}></LoginForm>
+                <Tile>
+                  Use this app to scan barcodes of your books for sharing them with the rest of the world.
+                  Privacy Warning: Your email will be visible next to your scanned books in open google spreadsheet.
+                  Works acceptable in good lighting on mobile phone.
+                  <br/>
+                  <br/>
+                  For any inquiries use <a href={"https://www.linkedin.com/in/piotr-suwa%C5%82a-928b1817a/"}><u>linkedin</u></a>.
+                </Tile>
+              </>,
+
               <ScanBookController also={(book) => (saveBook(book.isbn), null)}>
                 {(book, updateBook) =>
                   <>
