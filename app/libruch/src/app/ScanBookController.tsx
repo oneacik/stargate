@@ -15,7 +15,11 @@ export const ScanBookController = (props: {
   return <>
     {props.children(
       book,
-      (isbn) => queryBook(isbn).then(book => (setBook(book), book)).then(book => props?.also(book)))
+      (isbn) => queryBook(isbn)
+        .then(book => (setBook(book), book))
+        .then(book => props?.also(book))
+        .catch(alert)
+    )
     }
   </>
 }

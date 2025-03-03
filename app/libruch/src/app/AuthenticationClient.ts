@@ -4,7 +4,7 @@ let baseUrl = process.env.BASE_URL ?? "http://localhost"
 
 export function register(email: string): Promise<number> {
   return fetch(`/api/login/challenge/${email}`, {method: "POST"})
-    .then(x => x.status).then(x => (alert("Check Inbox"), x))
+    .then(x => x.status).then(x => (alert("Check Your Email Inbox For Login Link"), x))
 }
 
 export function authenticate(): Promise<string | null> {

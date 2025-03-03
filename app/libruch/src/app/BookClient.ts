@@ -22,6 +22,15 @@ let baseUrl = process.env.BASE_URL ?? "http://localhost"
 
 export async function queryBook(isbn: string): Promise<Book> {
   return fetch(`/api/books/${parseInt(isbn)}`)
+    .then(x => {
+      if (x.status == 404) {
+        return Promise.reject("Book Not Found")
+      }
+      if (x.status != 200) {
+        return Promise.reject("Error")
+      }
+      return x;
+    })
     .then(x => x.json())
 }
 
