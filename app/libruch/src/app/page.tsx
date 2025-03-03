@@ -77,6 +77,6 @@ function IsbnInput({onScan}) {
 
   return <>
     <label>Manual Isbn Input:</label><br/>
-    <input value={isbn} onChange={x => setIsbn(x.target.value)} style={{width: "100%", height: "2rem", padding: "1rem"}} placeholder={"?????????????"} type={"text"}/>
+    <input type={"number"} value={isbn} onChange={x => setIsbn(x.target.value)} style={{width: "100%", height: "2rem", padding: "1rem"}} placeholder={"?????????????"} />
   </>
 }
